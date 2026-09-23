@@ -7,8 +7,10 @@ import stage.ifm.ebankmicroservice.repositories.BankAccountRepository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
+@RequestMapping("/api")
 public class AccountRestController {
 
     private BankAccountRepository bankAccountRepository;
@@ -30,6 +32,7 @@ public class AccountRestController {
 
     @PostMapping("/bankAccounts")
     public BankAccount saveBankAccount(@RequestBody BankAccount bankAccount) {
+       if(bankAccount.getId()==null) bankAccount.setId(UUID.randomUUID().toString());
         return bankAccountRepository.save(bankAccount);
     }
 
