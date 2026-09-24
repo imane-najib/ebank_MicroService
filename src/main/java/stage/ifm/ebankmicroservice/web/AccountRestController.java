@@ -2,8 +2,11 @@ package stage.ifm.ebankmicroservice.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import stage.ifm.ebankmicroservice.dto.BankAccountRequestDTO;
+import stage.ifm.ebankmicroservice.dto.BankAccountResponseDTO;
 import stage.ifm.ebankmicroservice.entities.BankAccount;
 import stage.ifm.ebankmicroservice.repositories.BankAccountRepository;
+import stage.ifm.ebankmicroservice.service.AccountService;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +17,9 @@ import java.util.UUID;
 public class AccountRestController {
 
     private BankAccountRepository bankAccountRepository;
+
+    @Autowired
+    private AccountService  accountService;
 
     public AccountRestController(BankAccountRepository bankAccountRepository) {
         this.bankAccountRepository = bankAccountRepository;
@@ -31,9 +37,9 @@ public class AccountRestController {
     }
 
     @PostMapping("/bankAccounts")
-    public BankAccount saveBankAccount(@RequestBody BankAccount bankAccount) {
-       if(bankAccount.getId()==null) bankAccount.setId(UUID.randomUUID().toString());
-        return bankAccountRepository.save(bankAccount);
+    public BankAccountResponseDTO saveBankAccount(@RequestBody BankAccountRequestDTO RequestDTO) {
+
+        return accountService.addAccount(RequestDTO);
     }
 
     @PutMapping("/bankAccounts/{id}")
