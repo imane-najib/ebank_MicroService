@@ -30,6 +30,17 @@
 ##  Créer la couche Service (métier) et du micro service
 <img width="998" height="427" alt="image" src="https://github.com/user-attachments/assets/ac91602f-55f5-446a-92a1-14a329bfa061" />
 
+## Créer un Web service GraphQL pour ce Micro-service
+<img width="1749" height="821" alt="image" src="https://github.com/user-attachments/assets/fe76143a-c07a-4264-8216-dea80f2453e6" />
+<img width="1540" height="643" alt="image" src="https://github.com/user-attachments/assets/6aa19272-dbb2-48ae-be4c-619a9d7fac80" />
+<img width="1490" height="498" alt="image" src="https://github.com/user-attachments/assets/0e6fa3ff-3555-4f47-a922-a73b266ee4c8" />
+<img width="1672" height="503" alt="image" src="https://github.com/user-attachments/assets/85488d6e-cf5a-4730-a566-ebe3c93dc187" />
+
+
+
+
+
+
 
 
 
