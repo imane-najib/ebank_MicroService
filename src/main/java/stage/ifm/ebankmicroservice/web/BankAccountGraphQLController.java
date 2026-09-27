@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import stage.ifm.ebankmicroservice.dto.BankAccountRequestDTO;
 import stage.ifm.ebankmicroservice.dto.BankAccountResponseDTO;
 import stage.ifm.ebankmicroservice.entities.BankAccount;
+import stage.ifm.ebankmicroservice.entities.Customer;
 import stage.ifm.ebankmicroservice.repositories.BankAccountRepository;
+import stage.ifm.ebankmicroservice.repositories.CustomerRepository;
 import stage.ifm.ebankmicroservice.service.AccountService;
 
 import java.util.Date;
@@ -22,6 +24,9 @@ public class BankAccountGraphQLController {
 
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private CustomerRepository customerRepository
 
     @QueryMapping
     public List<BankAccount> accountsList() {
@@ -51,5 +56,10 @@ public class BankAccountGraphQLController {
     public boolean deleteAccount(@Argument String id) {
           bankAccountRepository.deleteById(id);
           return true;
+    }
+
+    @QueryMapping
+    public List<Customer> customers() {
+        return customerRepository.findAll();
     }
 }
